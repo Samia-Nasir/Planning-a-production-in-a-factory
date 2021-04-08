@@ -54,7 +54,7 @@ A=[I Q]; %to create a matrix with both I and Q
 C=c*pi'; % expected earnings from the objective function 
 f=[-C(:)' g'*B]; % the objective function that contains negative expected earnings and the positive cost
 b=zeros(1,K*P); % zero matrix in the size scenarios*products
-[z  fval] = linprog(f,A,b,[],[],lb,ub); %linprog solver 
+[z , fval] = linprog(f,A,b,[],[],lb,ub); %linprog solver 
 x = z(P*K+1:end); %how much you sell 
 y = B*x; %how much you produce 
 fval = -fval; %to convert the negative value of expected profit into the positive (max=-min)
